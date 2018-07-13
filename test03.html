@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            .first {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -200px 0 0 -400px;
+                list-style: none;
+            }
+			.second {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -50px 0 0 -400px;
+                list-style: none;
+            }
+            .second li{
+            	border:none;
+            }
+			.second:hover .before{
+				 -webkit-animation: before 0.5s ease forwards;
+			}
+			.second:hover .after{
+                 -webkit-animation: after 0.5s ease forwards;
+            }
+            li {
+                width: 200px;
+                float: left;
+                height: 100px;
+                border-right: 2px solid #ccc;
+                text-align: center;
+                line-height: 100px;
+                position: relative;
+                font-family: 'Raleway', sans-serif;
+                font-size: 36px;
+                font-weight: 900;
+            }
+            
+            .before,.after {
+                width: 200px;
+                height: 100px;
+                left: 0px;
+                top: 0px;
+                position: absolute;
+                text-decoration: none;
+                color: black;
+            }
+            
+            .before {
+                opacity: 1;
+            }
+            
+            .after {
+                opacity: 0;
+                transform: rotateY(-180deg);
+            }
+            
+            li:hover .before {
+                -webkit-animation: before 0.5s ease forwards;
+            }
+            @-webkit-keyframes before {
+                0 {
+            }
+                30% {transform:
+                    rotateY(90deg);
+                    opacity:
+                    1;
+            }
+                31% {transform:
+                    rotateY(90deg);
+                    opacity:
+                    0;
+            }
+                100% {transform:
+                    rotateY(180deg);
+                    opacity:
+                    0;
+            }
+            }
+            
+            li:hover .after {
+                -webkit-animation: after 0.5s ease forwards;
+            }
+            @-webkit-keyframes after {
+                0 {transform:
+                    rotateY(-180deg);
+                    opacity:
+                    0;
+            }
+                30% {transform:
+                    rotateY(-270deg);
+                    opacity:
+                    0;
+            }
+                31% {transform:
+                    rotateY(-270deg);
+                    opacity:
+                    1;
+            }
+                100% {transform:
+                    rotateY(-360deg);
+                    opacity:
+                    1;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="first">
+            <li>
+                <a href="#" class="before">首     页</a>
+                <a href="#" class="after">homepage</a>
+            </li>
+            <li>
+                <a href="#" class="before">介     绍</a>
+                <a href="#" class="after">introduce</a>
+            </li>
+            <li>
+                <a href="#" class="before">详     情</a>
+                <a href="#" class="after">details</a>
+            </li>
+            <li>
+                <a href="#" class="before">关     于</a>
+                <a href="#" class="after">about</a>
+            </li>
+        </ul>
+        	<ul class="second">
+        		<li>
+                <a href="#" class="before">详     情</a>
+                <a href="#" class="after">details</a>
+            </li>
+            <li>
+                <a href="#" class="before">关     于</a>
+                <a href="#" class="after">about</a>
+            </li>
+        	</ul>
+        	
+    </body>
+</html>

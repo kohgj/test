@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            .container {
+            	position:absolute;
+				top:50%;
+				left:50%;
+                width: 100px;
+                height: 100px;	
+				text-align:center;
+				line-height:100px;
+				-webkit-perspective: 200px;
+                perspective: 200px;
+            }
+			.container:hover .side1{
+				-webkit-animation:side1 1s linear forwards;
+			}
+			.container:hover .side2{
+                -webkit-animation:side2 1s linear forwards;
+            }
+			.container:hover .side1 span{
+                -webkit-animation:side1span 1s linear forwards;
+            }
+			.container:hover .side2 span{
+                -webkit-animation:side2span 1s linear forwards;
+            }
+			.side1{
+				width:100px;
+				height:100px;
+				left:-100px;
+				position:absolute;
+				/*
+background-color:blue;
+*/
+				-webkit-transform-style:preserve-3d;   
+                transform-style:preserve-3d;  
+				
+			}
+			.side2{
+				width:100px;
+                height:100px;
+				left:100px;
+                position:absolute;
+                /*
+background-color:yellow;
+*/
+				-webkit-transform-style:preserve-3d;   
+                transform-style:preserve-3d;  
+				
+			}
+			.side1 span{
+				width:100px;
+				height:100px;
+				position:absolute;
+				transform:translateZ(50px) translateX(50px);
+				
+			}
+			.side2 span{
+                width:100px;
+                height:100px;
+                position:absolute;
+                transform:rotateY(180deg) translateZ(50px) translateX(100px) ;
+				
+				opacity:0;
+            }
+			@-webkit-keyframes side1span{
+				0{
+					transform:translateZ(50px) translateX(50px);
+				}
+				50%{
+					transform:translateX(-50px) translateZ(50px);
+				}
+				80%{
+					transform:translateX(-100px) translateZ(50px);
+					opacity:0.5;
+				}
+				100%{
+                    transform:translateX(-100px) translateZ(50px);
+                    opacity:0;
+                }
+			}
+			@-webkit-keyframes side1{
+				0{
+					transform:rotateX(0) rotateZ(0) rotateY(0);
+				}
+                50%{
+                   transform:rotateX(0) rotateZ(0) rotateY(0);
+                }
+                80%{
+                   transform:rotateY(-180deg);
+                }
+				100%{
+                   transform:rotateY(-180deg);
+                }
+            }
+			@-webkit-keyframes side2span{
+                0{
+                   transform: rotateY(180deg) translateZ(50px) translateX(100px);
+                }
+                50%{
+                   transform: rotateY(180deg) translateZ(50px) translateX(50px);
+				   opacity:0.5
+                }
+                80%{
+                   transform: rotateY(180deg) translateZ(50px) translateX(-50px);
+                }
+				100%{
+                   transform: rotateY(180deg) translateZ(50px) translateX(-50px);
+                   opacity:1;
+                }
+            }
+            @-webkit-keyframes side2{
+                0{
+                    transform:rotateY(0deg);
+                }
+                50%{
+                   transform:rotateY(-180deg);
+                }
+                80%{
+                   transform:rotateY(-180deg);
+                }
+				100%{
+                   transform:rotateY(-180deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="side1">
+                <span>介绍</span>
+            </div>
+            <div class="side2">
+                <span>Introduce</span>
+            </div>
+        </div>
+    </body>
+</html>

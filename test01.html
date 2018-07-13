@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            body {
+                color: black;
+                font-size: 40px;
+            }
+            
+            div {
+                display: block;
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -100px 0 0 -100px;
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+				backface-visibility:hidden;
+            }
+            
+            .side1 {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                transform: translateZ(100px);
+                text-align: center;
+                line-height: 200px;
+            }
+            
+            .side2 {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                transform: rotateY(180deg) translateZ(100px) ;
+                text-align: center;
+                line-height: 200px;
+				opacity:0;
+            }
+            
+            div:hover {
+                animation: rotate 1s forwards;
+                -webkit-animation: rotate 1s forwards; /* Safari and Chrome */
+                -webkit-transform-origin: 50% 50%;
+            }
+			div:hover .side1{
+				animation: rotate 1s forwards;
+                -webkit-animation: side1 1s forwards; /* Safari and Chrome */
+                -webkit-transform-origin: 50% 50%;
+			}
+			@-webkit-keyframes side1 { /* Safari and Chrome */
+            from {
+            }
+            
+            to {
+                    opacity:0;
+            }
+            }
+			div:hover .side2{
+                animation: rotate 1s forwards;
+                -webkit-animation: side2 1s forwards; /* Safari and Chrome */
+                -webkit-transform-origin: 50% 50%;
+            }
+            @-webkit-keyframes side2 { /* Safari and Chrome */
+            from {
+            }
+            
+            to {
+                    opacity:1;
+            }
+            }
+			
+			
+            @-webkit-keyframes rotate { /* Safari and Chrome */
+            from {
+            }
+            
+            to {
+                    transform: rotateY(-180deg);
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span class="side1">首页</span>
+            <span class="side2">第二页</span>
+        </div>
+    </body>
+</html>
